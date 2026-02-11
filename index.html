@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshie Boshie</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/personal/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo" data-page="home">Josh</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#projects" class="nav-link" data-page="projects">Projects</a></li>
+                <li><a href="#gallery" class="nav-link" data-page="gallery">Gallery</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <!-- Main Section -->
+        <div class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Marketing</span>
+                        <span class="title-line">& so much more</span>
+                    </h1>
+                    <p class="hero-subtitle">Transforming brands through strategic campaigns and unique perspectives</p>
+                    <a href="#contact" class="cta-button nav-link" data-page="contact">Get In Touch</a>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <img src="assets/personal/profile.jpg" alt="Joshua Rylee Bala" id="profile-img">
+                        <span class="image-text"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="header-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-intro">
+                            I'm a Software Engineering Graduate with a passion for marketing, bridging the gap between analytical thinking and creative execution.
+                        </p>
+                        <p>
+                            With hands-on experience in Web3, F&B, and gaming, I have developed an adaptive, audience-first marketing approach grounded in data. My work spans creative copywriting, social media growth, paid media, SEO, and event execution, integrating creativity with structured systems that support long-term brand growth. I believe strong marketing balances creative intuition with structured experimentation, and I’m most energized in fast-paced environments where ideas must be both bold and strategic to stand out.
+                        </p>
+                        <p>
+                            Whether it’s shaping brand strategy, launching regional campaigns, or refining conversion funnels, I bring a holistic mindset grounded in both creativity and performance. I ensure each initiative is structured, measurable, and aligned with long-term business objectives.
+                        </p>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <h3>Brand Strategy</h3>
+                            <p>Crafting compelling brand narratives and positioning</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>Digital Marketing</h3>
+                            <p>SEO, SEM, social media, and paid ads</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>Campaign Management</h3>
+                            <p>End-to-end campaign planning and execution</p>
+                        </div>
+                        <div class="skill-card">
+                            <h3>Analytics & Insights</h3>
+                            <p>Data-driven decision making and optimization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Page -->
+    <section id="projects" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <!-- Project Filtering -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="seo">SEO</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn" data-filter="offline">Offline Campaigns</button>
+                <button class="filter-btn" data-filter="content">Personal Project</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- Example Project 1 -->
+                <div class="project-card" data-tags="branding,content">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Branding</span>
+                        </div>
+                        <h3>Brand Refresh Campaign</h3>
+                        <p>Complete brand overhaul including visual identity, messaging framework, and content strategy for a tech startup.</p>
+                    </div>
+                </div>
+
+                <!-- Example Project 2 -->
+                <div class="project-card" data-tags="seo,social">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">SEO</span>
+                        </div>
+                        <h3>SEO Strategy</h3>
+                        <p>360° digital campaign combining SEO optimization, social media management, and paid advertising for an e-commerce brand.</p>
+                    </div>
+                </div>
+
+                <!-- ACS Edu Tour -->
+                <div class="project-card" data-tags="offline,branding">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Offline Campaigns</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                        <h3>ACS Edu Tour Season 4</h3>
+                        <p>On-ground activation across all states including grand finals in Berjaya Times Square</p>
+                    </div>
+                </div>
+                <!-- RO Festa -->
+                <div class="project-card" data-tags="offline,branding">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Offline Campaigns</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                        <h3>Ragnarok Festa 2025, Bangkok</h3>
+                        <p>As the presenting sponsor of the largest Ragnarok gathering in the world, I coordinated with all departments across multiple campaigns while also having the biggest booth there</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Page -->
+    <section id="gallery" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Example Gallery Images -->
+                <div class="gallery-item">
+                    <img src="/assets/gallery/gallery-3.png" alt="Stovelabs DJ Set">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/gallery/gallery-5.png" alt="Sean Kingston at Mix Club Melaka">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/gallery/gallery-2.png" alt="Bartending">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/gallery/gallery-6.png" alt="Random DJ at Fuze Club">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/gallery/gallery-1.png" alt="Bestie & I">
+                </div>
+                <div class="gallery-item">
+                    <img src="/assets/gallery/gallery-4.png" alt="Singer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Let's Work Together</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in touch</h3>
+                    <p>Have a project in mind? Let's discuss how we can work together to bring your vision to life.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>joshuaryleebala@gmail.com</span>
+                        </div>
+                        <div class="contact-details">
+                        <div class="contact-item">
+                            <svg 
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-label="Instagram"
+                                role="img">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <circle cx="17.5" cy="6.5" r="1"></circle>
+                            </svg>
+                            <span>
+                                @joshieboshie_
+                            </span>
+                        </div>
+                </div>
+                        <!-- 
+                        <div class="contact-item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span>+60 17 370 3873</span>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Message</button>
+                    <div class="form-status" id="form-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-socials" aria-label="Social links">
+      <!-- Substack -->
+      <a
+        class="social-link"
+        href="https://joshieboshie.substack.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Substack"
+        title="Substack"
+      >
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <!-- simple Substack-like mark -->
+          <path d="M4 6.5h16V8H4V6.5zm0 4h16V12H4v-1.5zm0 4h16V22l-8-4-8 4v-7.5z" fill="currentColor"/>
+        </svg>
+      </a>
+
+      <!-- LinkedIn -->
+      <a
+        class="social-link"
+        href="https://www.linkedin.com/in/joshuaryleebala/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+        title="LinkedIn"
+      >
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0.5 8.5H4.5V23H0.5V8.5zM8 8.5h3.8v2h.05c.53-1 1.82-2.05 3.75-2.05 4.01 0 4.75 2.64 4.75 6.07V23h-4v-7.55c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.9 1.96-2.9 3.99V23H8V8.5z"/>
+        </svg>
+      </a>
+
+      <!-- SoundCloud -->
+      <a
+        class="social-link"
+        href="https://soundcloud.com/joshie-boshie"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="SoundCloud"
+        title="SoundCloud"
+      >
+        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M11 7.2c.35-.1.7-.15 1.06-.15 2.2 0 4 1.78 4 3.98v.15h.5c2.05 0 3.72 1.66 3.72 3.7S18.6 18.6 16.56 18.6H8.2c-1.6 0-2.9-1.3-2.9-2.9 0-1.3.86-2.44 2.08-2.8l.35 5.7h8.83c1.2 0 2.18-.97 2.18-2.16s-.98-2.16-2.18-2.16h-1.6v-1.1c0-1.73-1.41-3.14-3.16-3.14-.3 0-.58.04-.86.1V7.2z"/>
+          <path fill="currentColor" d="M7.2 12.9l.32 5.7H6.2l-.35-5.45c.45-.13.9-.2 1.35-.25z"/>
+          <path fill="currentColor" d="M4.7 13.2l.25 5.4H4l-.25-5.1c.3-.12.62-.22.95-.3z"/>
+        </svg>
+      </a>
+    </div>
+
+    <p>&copy; 2026 Joshua R. Bala. All rights reserved.</p>
+  </div>
+</footer>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
