@@ -637,6 +637,188 @@ body {
     color: #991B1B;
 }
 
+/* Chess */
+.chess-content {
+    display: grid;
+    grid-template-columns: minmax(0, 560px) 320px;
+    gap: 3rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.chess-board-card {
+    background: var(--bg-light);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.chess-board {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.chess-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.chess-rating-badge {
+    align-self: flex-start;
+}
+
+.chess-status-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.chess-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-purple);
+    flex-shrink: 0;
+}
+
+.chess-status {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.chess-speech-bubble {
+    position: relative;
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+}
+
+.chess-speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 8px 6px 0;
+    border-style: solid;
+    border-color: transparent var(--bg-light) transparent transparent;
+}
+
+.chess-status.chess-game-over {
+    color: var(--primary-purple);
+}
+
+.chess-thinking-dots {
+    color: var(--primary-purple);
+}
+
+.chess-move-list {
+    flex: 1;
+    min-height: 120px;
+    max-height: 320px;
+    overflow-y: auto;
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.chess-move-list:empty::before {
+    content: 'Moves will appear here.';
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.chess-move-row {
+    display: grid;
+    grid-template-columns: 2rem 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-medium);
+}
+
+.chess-move-num {
+    color: var(--text-light);
+}
+
+.chess-buttons-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.chess-new-game {
+    align-self: flex-start;
+    border: none;
+}
+
+.chess-undo-button {
+    padding: 1rem 2rem;
+    background: var(--bg-white);
+    border: 2px solid var(--primary-purple);
+    border-radius: 8px;
+    color: var(--primary-purple);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.chess-undo-button:hover {
+    background: var(--purple-ultra-light);
+}
+
+.chess-undo-message {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    max-width: 320px;
+}
+
+/* Chessground board theme, recolored to the site palette */
+.chess-board .cg-wrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.chess-board cg-board {
+    background-color: var(--purple-ultra-light);
+    background-image: conic-gradient(
+        var(--purple-light) 90deg,
+        transparent 90deg 180deg,
+        var(--purple-light) 180deg 270deg,
+        transparent 270deg
+    );
+    background-size: 25% 25%;
+}
+
+.chess-board cg-board square.last-move {
+    background-color: rgba(124, 58, 237, 0.35);
+}
+
+.chess-board cg-board square.selected {
+    background-color: rgba(91, 33, 182, 0.5);
+}
+
+.chess-board cg-board square.move-dest {
+    background: radial-gradient(rgba(91, 33, 182, 0.5) 22%, transparent 25%);
+}
+
+.chess-board cg-board square.oc.move-dest {
+    background: radial-gradient(transparent 0%, transparent 79%, rgba(91, 33, 182, 0.5) 80%);
+}
+
+.chess-board cg-board square.check {
+    background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.9) 0%, rgba(220, 38, 38, 0.4) 55%, transparent 100%);
+}
+
 /* Footer */
 .footer {
     background: var(--text-dark);
@@ -678,7 +860,8 @@ body {
 @media (max-width: 968px) {
     .hero-container,
     .about-content,
-    .contact-content {
+    .contact-content,
+    .chess-content {
         grid-template-columns: 1fr;
         gap: 3rem;
     }

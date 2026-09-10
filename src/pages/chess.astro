@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ChessGame from '../components/ChessGame.vue';
+---
+
+<Layout title="Josh | Chess" description="Play a game of chess against Josh">
+    <div class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Play Josh</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <ChessGame client:load />
+        </div>
+    </div>
+</Layout>
