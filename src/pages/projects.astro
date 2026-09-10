@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectsGrid from '../components/ProjectsGrid.vue';
+---
+
+<Layout title="Josh | Projects" description="Featured projects: user acquisition campaigns, SEO strategy, offline activations, and personal creative work by Joshua R. Bala.">
+    <div class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <ProjectsGrid client:load />
+        </div>
+    </div>
+</Layout>

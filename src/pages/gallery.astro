@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GalleryGrid from '../components/GalleryGrid.vue';
+---
+
+<Layout title="Josh | Gallery" description="Photo gallery of Joshua R. Bala — events, activations, and moments behind the campaigns.">
+    <div class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <GalleryGrid client:load />
+        </div>
+    </div>
+</Layout>

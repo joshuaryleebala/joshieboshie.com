@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.vue';
+---
+
+<Layout title="Josh | Contact" description="Get in touch with Joshua R. Bala — let's discuss how we can work together.">
+    <div class="page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Let's Work Together</h2>
+                <div class="header-line"></div>
+            </div>
+
+            <ContactForm client:load />
+        </div>
+    </div>
+</Layout>
