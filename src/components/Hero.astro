@@ -1,4 +1,9 @@
-<div class="hero">
+---
+import { Image } from 'astro:assets';
+import profile from '../assets/personal/profile.jpg';
+---
+
+<section class="hero">
     <div class="container hero-container">
         <div class="hero-content">
             <h1 class="hero-title">
@@ -6,20 +11,22 @@
                 <span class="title-line">& so much more</span>
             </h1>
             <p class="hero-subtitle">Driving growth through unique perspectives.</p>
-            <a href="/contact" class="cta-button">Get In Touch</a>
+            <div class="hero-actions">
+                <a href="/contact" class="cta-button">Get In Touch</a>
+                <a href="/projects" class="btn-secondary">View Projects</a>
+            </div>
         </div>
         <div class="hero-image">
-            <div class="image-placeholder">
-                <img src="/assets/personal/profile.jpg" alt="Joshua Rylee Bala" id="profile-img">
-                <span class="image-text"></span>
+            <div class="image-frame">
+                <Image
+                    src={profile}
+                    alt="Joshua Rylee Bala"
+                    widths={[360, 540, 720, 1080]}
+                    sizes="(max-width: 968px) min(420px, 100vw), 480px"
+                    loading="eager"
+                    fetchpriority="high"
+                />
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    const profileImg = document.getElementById('profile-img') as HTMLImageElement | null;
-    profileImg?.addEventListener('error', () => {
-        profileImg.style.display = 'none';
-    });
-</script>
+</section>

@@ -1,17 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectsGrid from '../components/ProjectsGrid.vue';
+import { projects as projectSources } from '../data/projects';
+import { responsiveImage } from '../lib/images';
+
+const projects = await Promise.all(
+  projectSources.map(async ({ image, ...project }) => ({
+    ...project,
+    image: await responsiveImage(image, [480, 800, 1200], '(max-width: 720px) 100vw, 380px'),
+  })),
+);
 ---
 
 <Layout title="Josh | Projects" description="Featured projects: user acquisition campaigns, SEO strategy, offline activations, and personal creative work by Joshua R. Bala.">
     <div class="page">
         <div class="container">
             <div class="section-header">
-                <h2>Featured Projects</h2>
+                <h1>Featured Projects</h1>
                 <div class="header-line"></div>
             </div>
 
-            <ProjectsGrid client:load />
+            <ProjectsGrid projects={projects} client:load />
         </div>
     </div>
 </Layout>

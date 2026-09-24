@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, watch, nextTick, onMounted, onBeforeUnmount } from 'vue';
 import { Chess, type Square } from 'chess.js';
 import { Chessground } from '@lichess-org/chessground';
 import '@lichess-org/chessground/assets/chessground.base.css';
@@ -7,8 +7,12 @@ import '@lichess-org/chessground/assets/chessground.cburnett.css';
 import { caroKann, kingsIndian, flexibleSetup, pickBookLine, type BookLine } from '../lib/chessBook';
 import { getEngineMove, resetEngineGame } from '../lib/chessEngine';
 import { fetchLiveRapidRating, DEFAULT_ELO } from '../lib/chessComRating';
+import type { ResponsiveImage } from '../lib/images';
+
+defineProps<{ avatar: ResponsiveImage }>();
 
 const boardEl = ref<HTMLElement | null>(null);
+const moveListEl = ref<HTMLElement | null>(null);
 const moveHistory = ref<string[]>([]);
 const statusText = ref('Your move');
 const gameOver = ref(false);
@@ -33,6 +37,15 @@ const movePairs = computed(() => {
   }
   return pairs;
 });
+
+// Keep the latest move in view as the list grows.
+watch(
+  () => moveHistory.value.length,
+  async () => {
+    await nextTick();
+    moveListEl.value?.scrollTo({ top: moveListEl.value.scrollHeight });
+  },
+);
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -228,24 +241,32 @@ onBeforeUnmount(() => {
 <template>
   <div class="chess-content">
     <div class="chess-board-card">
-      <div class="chess-board" ref="boardEl"></div>
+      <div class="chess-board" ref="boardEl" role="img" aria-label="Chess board. You play white."></div>
     </div>
 
     <div class="chess-panel">
-      <span class="tag chess-rating-badge">
+      <span class="tag chess-rating-badge" :class="{ 'is-live': ratingStatus === 'live' }">
         <template v-if="ratingStatus === 'loading'">Syncing chess.com rating…</template>
         <template v-else-if="ratingStatus === 'live'">Live Rating: {{ rating }}</template>
         <template v-else>Rating unavailable — playing at {{ rating }}</template>
       </span>
 
       <div class="chess-status-row">
-        <img src="/assets/chess/josh_chess.png" alt="Josh" class="chess-avatar">
-        <p class="chess-status chess-speech-bubble" :class="{ 'chess-game-over': gameOver }">
-          {{ statusText }}<span v-if="thinking && statusText === 'Josh is thinking...'" class="chess-thinking-dots">…</span>
+        <img
+          :src="avatar.src"
+          :srcset="avatar.srcset"
+          :sizes="avatar.sizes"
+          width="48"
+          height="48"
+          alt="Josh"
+          class="chess-avatar"
+        >
+        <p class="chess-status chess-speech-bubble" :class="{ 'chess-game-over': gameOver }" aria-live="polite">
+          {{ statusText }}<span v-if="thinking && statusText === 'Josh is thinking...'" class="chess-thinking-dots" aria-hidden="true">…</span>
         </p>
       </div>
 
-      <div class="chess-move-list">
+      <div class="chess-move-list" ref="moveListEl" aria-label="Move history">
         <div v-for="pair in movePairs" :key="pair.num" class="chess-move-row">
           <span class="chess-move-num">{{ pair.num }}.</span>
           <span class="chess-move-san">{{ pair.white }}</span>
@@ -254,8 +275,8 @@ onBeforeUnmount(() => {
       </div>
 
       <div class="chess-buttons-row">
-        <button class="cta-button chess-new-game" @click="newGame">New Game</button>
-        <button class="chess-undo-button" @click="showUndoMessage = !showUndoMessage">Undo</button>
+        <button type="button" class="cta-button chess-new-game" @click="newGame">New Game</button>
+        <button type="button" class="btn-secondary chess-undo-button" :aria-expanded="showUndoMessage" @click="showUndoMessage = !showUndoMessage">Undo</button>
       </div>
       <p v-if="showUndoMessage" class="chess-undo-message">There are no undo buttons in life. Learn to live with your mistakes.</p>
     </div>

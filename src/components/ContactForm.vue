@@ -37,51 +37,47 @@ function handleSubmit() {
 <template>
   <div class="contact-content">
     <div class="contact-info">
-      <h3>Get in touch</h3>
+      <h2>Get in touch</h2>
       <p>Have a project in mind? Let's discuss how we can work together to bring your vision to life.</p>
 
-      <div class="contact-details">
-        <div class="contact-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <span>joshuaryleebala@gmail.com</span>
-        </div>
-      </div>
-      <div class="contact-details">
-        <div class="contact-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-label="Instagram"
-            role="img"
-          >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.5" cy="6.5" r="1"></circle>
-          </svg>
-          <span>@joshieboshie_</span>
-        </div>
-      </div>
+      <ul class="contact-details">
+        <li>
+          <a class="contact-item" href="mailto:joshuaryleebala@gmail.com">
+            <span class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </span>
+            <span>joshuaryleebala@gmail.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="contact-item" href="https://www.instagram.com/joshieboshie_/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </span>
+            <span><span class="visually-hidden">Instagram: </span>@joshieboshie_</span>
+          </a>
+        </li>
+      </ul>
     </div>
 
     <form class="contact-form" @submit.prevent="handleSubmit">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" v-model="form.name" required>
-      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" v-model="form.name" required>
+        </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" v-model="form.email" required>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" v-model="form.email" required>
+        </div>
       </div>
 
       <div class="form-group">
@@ -95,7 +91,7 @@ function handleSubmit() {
       </div>
 
       <button type="submit" class="submit-button">Send Message</button>
-      <div v-if="statusMessage" class="form-status" :class="statusClass">{{ statusMessage }}</div>
+      <div class="form-status" :class="statusClass" role="status" aria-live="polite">{{ statusMessage }}</div>
     </form>
   </div>
 </template>

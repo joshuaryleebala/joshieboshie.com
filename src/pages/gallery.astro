@@ -1,17 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GalleryGrid from '../components/GalleryGrid.vue';
+import { gallery } from '../data/gallery';
+import { responsiveImage } from '../lib/images';
+
+const images = await Promise.all(
+  gallery.map(async ({ image, alt }) => ({
+    alt,
+    thumb: await responsiveImage(image, [400, 800], '(max-width: 600px) 100vw, 380px'),
+    full: await responsiveImage(image, [1080, 1600, 2400], '90vw'),
+  })),
+);
 ---
 
 <Layout title="Josh | Gallery" description="Photo gallery of Joshua R. Bala — events, activations, and moments behind the campaigns.">
     <div class="page">
         <div class="container">
             <div class="section-header">
-                <h2>Photo Gallery</h2>
+                <h1>Photo Gallery</h1>
                 <div class="header-line"></div>
             </div>
 
-            <GalleryGrid client:load />
+            <GalleryGrid images={images} client:load />
         </div>
     </div>
 </Layout>

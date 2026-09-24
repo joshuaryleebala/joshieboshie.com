@@ -61,13 +61,15 @@ const ogImageURL = new URL('/assets/personal/og-image.jpg', Astro.site);
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <Navbar />
 
-    <slot />
+    <main id="main" tabindex="-1">
+        <slot />
+    </main>
 
     <Footer />
 
     <Analytics />
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -1,17 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ChessGame from '../components/ChessGame.vue';
+import avatar from '../assets/chess/josh_chess.png';
+import { responsiveImage } from '../lib/images';
+
+const avatarImage = await responsiveImage(avatar, [96, 144], '48px');
 ---
 
 <Layout title="Josh | Chess" description="Play a game of chess against Josh">
     <div class="page">
         <div class="container">
             <div class="section-header">
-                <h2>Play Josh</h2>
+                <h1>Play Josh</h1>
                 <div class="header-line"></div>
             </div>
 
-            <ChessGame client:load />
+            <ChessGame avatar={avatarImage} client:load />
         </div>
     </div>
 </Layout>
